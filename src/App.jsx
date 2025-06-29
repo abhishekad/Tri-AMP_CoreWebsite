@@ -4,7 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import HomePage from '@/pages/HomePage';
 import LexaPage from '@/pages/LexaPage';
-import HealthcareAiPage from '@/pages/HealthcareAiPage';
+import LexaSuitePage from '@/pages/LexaSuitePage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import CookiesPolicyPage from '@/pages/CookiesPolicyPage';
+import TermsOfUsePage from '@/pages/TermsOfUsePage';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,16 +16,19 @@ function App() {
   return (
     <Router>
       <Helmet>
-        <title>TriAMP - Revolutionary AI Solutions</title>
-        <meta name="description" content="TriAMP creates cutting-edge AI products for Legal technology and Healthcare sectors, serving both B2B and B2C markets with innovative solutions." />
+        <title>TriAMP - Revolutionary AI Solutions for Legal Tech</title>
+        <meta name="description" content="TriAMP creates cutting-edge AI products for the Legal technology sector, serving both B2B and B2C markets with innovative solutions." />
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 text-white overflow-x-hidden flex flex-col">
+      <div className="min-h-screen bg-charcoal text-light-gray overflow-x-hidden flex flex-col">
         <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/lexa" element={<LexaPage />} />
-            <Route path="/healthcare-ai" element={<HealthcareAiPage />} />
+            <Route path="/lexa-suite" element={<LexaSuitePage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/cookies-policy" element={<CookiesPolicyPage />} />
+            <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           </Routes>
         </main>
         <Footer />
