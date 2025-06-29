@@ -1,21 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import useGoogleAnalytics from '../hooks/useGoogleAnalytics';
 
 const CookiesPolicyPage = () => {
+  useGoogleAnalytics();
+
   return (
     <>
       <Helmet>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RSQZFH4P9"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-6RSQZFH4P9');
-          `
-        }} />
         <title>Cookies Policy | TriAMP</title>
         <meta name="description" content="Cookies Policy for TriAMP. Learn about the cookies we use on our site." />
       </Helmet>

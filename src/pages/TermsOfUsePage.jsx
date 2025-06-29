@@ -3,8 +3,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { FileText, ArrowUpRight } from 'lucide-react';
+import useGoogleAnalytics from '../hooks/useGoogleAnalytics';
 
 const TermsOfUsePage = () => {
+  useGoogleAnalytics();
   const currentDate = new Date().toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
