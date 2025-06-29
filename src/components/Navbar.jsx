@@ -36,7 +36,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8 text-light-gray">
           <a href="/#solutions" className="hover:text-aqua transition-colors">Solutions</a>
-          <a href="/#about" className="hover:text-aqua transition-colors">About</a>
+          <Link to="/about" className="hover:text-aqua transition-colors">About</Link>
           <Button onClick={handleFeatureClick} variant="outline" className="border-2 border-aqua/50 text-aqua hover:bg-aqua/10 hover:text-aqua">
             <Calendar className="mr-2 h-4 w-4" />
             Schedule Demo
@@ -62,7 +62,7 @@ const Navbar = () => {
         >
           <div className="flex flex-col space-y-4 text-light-gray">
             <a href="/#solutions" onClick={() => setIsMenuOpen(false)} className="hover:text-aqua transition-colors">Solutions</a>
-            <a href="/#about" onClick={() => setIsMenuOpen(false)} className="hover:text-aqua transition-colors">About</a>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)} className="hover:text-aqua transition-colors">About</Link>
             <Button onClick={() => { handleFeatureClick(); setIsMenuOpen(false); }} variant="outline" className="w-full border-aqua/50 text-aqua hover:bg-aqua/10 hover:text-aqua">
               Schedule Demo
             </Button>
