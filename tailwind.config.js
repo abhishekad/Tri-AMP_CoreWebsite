@@ -2,9 +2,7 @@
 module.exports = {
 	darkMode: ['class'],
 	content: [
-		'./pages/**/*.{js,jsx}',
-		'./components/**/*.{js,jsx}',
-		'./app/**/*.{js,jsx}',
+		'./index.html',
 		'./src/**/*.{js,jsx}',
 	],
 	theme: {
@@ -16,6 +14,38 @@ module.exports = {
 			},
 		},
 		extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.light-gray / 80%'),
+            a: {
+              color: theme('colors.aqua'),
+              '&:hover': {
+                color: theme('colors.aqua / 80%'),
+              },
+            },
+            h1: {
+              color: theme('colors.light-gray'),
+            },
+            h2: {
+              color: theme('colors.light-gray'),
+            },
+            h3: {
+              color: theme('colors.light-gray'),
+            },
+            h4: {
+              color: theme('colors.light-gray'),
+            },
+            strong: {
+              color: theme('colors.light-gray'),
+            },
+            blockquote: {
+              color: theme('colors.light-gray / 90%'),
+              borderLeftColor: theme('colors.electric-blue'),
+            }
+          },
+        },
+      }),
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -50,6 +80,10 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+        charcoal: '#2E2E2E',
+        'light-gray': '#F4F4F4',
+        'electric-blue': '#007BFF',
+        'aqua': '#00D1B2',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -72,5 +106,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 };
