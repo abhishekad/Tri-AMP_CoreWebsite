@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import HomePage from '@/pages/HomePage';
+import AboutPage from '@/pages/AboutPage';
 import LexaPage from '@/pages/LexaPage';
 import LexaSuitePage from '@/pages/LexaSuitePage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
@@ -24,6 +25,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/lexa" element={<LexaPage />} />
             <Route path="/lexa-suite" element={<LexaSuitePage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

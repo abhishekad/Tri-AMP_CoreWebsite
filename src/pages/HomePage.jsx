@@ -6,9 +6,11 @@ import HeroSection from '@/components/home/HeroSection';
 import SolutionsSection from '@/components/home/SolutionsSection';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
 import CtaSection from '@/components/home/CtaSection';
+import useGoogleAnalytics from '../hooks/useGoogleAnalytics';
 
 const HomePage = () => {
   const { toast } = useToast();
+  useGoogleAnalytics();
 
   const handleFeatureClick = () => {
     toast({
