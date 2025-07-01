@@ -189,20 +189,46 @@ logger.error = (msg, options) => {
 	loggerError(msg, options);
 }
 
+// Security headers configuration
+const securityHeaders = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+  'Cross-Origin-Embedder-Policy': 'require-corp',
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: https:",
+    "font-src 'self' https://fonts.gstatic.com data:",
+    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+    "media-src 'self' https:",
+    "object-src 'none'",
+    "frame-src 'self' https://www.youtube.com",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'"
+  ].join('; ').replace(/\s+/g, ' ').trim()
+};
+
 export default defineConfig({
-	customLogger: logger,
-	plugins: [
-		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
-		react(),
-		addTransformIndexHtml
-	],
-	server: {
-		cors: true,
-		headers: {
-			'Cross-Origin-Embedder-Policy': 'credentialless',
-		},
-		allowedHosts: true,
-	},
+  customLogger: logger,
+  plugins: [
+    ...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
+    react(),
+    addTransformIndexHtml
+  ],
+  server: {
+    cors: true,
+    headers: {
+      ...securityHeaders,
+      'Cross-Origin-Embedder-Policy': 'credentialless', // Required for some browser features
+    },
+    allowedHosts: true,
+  },
 	resolve: {
 		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
 		alias: {
@@ -210,13 +236,36 @@ export default defineConfig({
 		},
 	},
 	build: {
-		rollupOptions: {
-			external: [
-				'@babel/parser',
-				'@babel/traverse',
-				'@babel/generator',
-				'@babel/types'
-			]
-		}
-	}
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: false,
+    minify: 'terser',
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      external: [
+        '@babel/parser',
+        '@babel/traverse',
+        '@babel/generator',
+        '@babel/types'
+      ],
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          vendor: ['framer-motion'],
+        },
+      },
+    },
+    terserOptions: {
+      compress: {
+        drop_console: !isDev,
+        drop_debugger: !isDev,
+      },
+      format: {
+        comments: false,
+      },
+    },
+  },
+  preview: {
+    headers: securityHeaders,
+  }
 });

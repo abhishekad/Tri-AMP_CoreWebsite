@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { toast } from '@/components/ui/use-toast';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -10,6 +12,23 @@ const fadeInUp = {
 };
 
 const CtaSection = ({ handleFeatureClick }) => {
+  const navigate = useNavigate();
+  
+  const handleDemoClick = useCallback((e) => {
+    e?.preventDefault?.();
+    try {
+      // Optional: Add analytics tracking here
+      console.log('Schedule Demo clicked from CTA section');
+      navigate('/demo');
+    } catch (error) {
+      console.error('Navigation error:', error);
+      toast({
+        title: 'Navigation Error',
+        description: 'Could not navigate to the demo page. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  }, [navigate]);
   return (
     <section className="px-6 py-20 relative bg-secondary/20">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -33,12 +52,19 @@ const CtaSection = ({ handleFeatureClick }) => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
-              onClick={handleFeatureClick}
+              asChild
               variant="outline" 
               size="lg"
-              className="border-2 border-aqua/50 text-aqua hover:bg-aqua/10 hover:text-aqua text-lg px-8 py-4 rounded-xl"
+              className="group border-2 border-aqua/50 text-aqua hover:bg-aqua/10 hover:text-aqua text-lg px-8 py-4 rounded-xl transition-all duration-200"
             >
-              Schedule Demo
+              <button 
+                onClick={handleDemoClick}
+                className="flex items-center gap-2"
+                aria-label="Schedule a demo"
+              >
+                <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                Schedule Demo
+              </button>
             </Button>
           </div>
         </motion.div>

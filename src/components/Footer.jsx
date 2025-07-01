@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <span className="font-semibold text-light-gray mb-4 block">Company</span>
             <div className="space-y-2">
-              <p className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors">About Us</p>
+              <Link to="/about" className="text-light-gray/70 hover:text-aqua transition-colors block">About Us</Link>
               <p className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors">Careers</p>
               <p className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors">Contact</p>
             </div>
