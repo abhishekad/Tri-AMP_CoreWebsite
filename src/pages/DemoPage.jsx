@@ -69,7 +69,7 @@ const DemoPage = () => {
           >
             <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden">
               <VideoPlayer 
-                src="/videos/Launching_Soon_demo.mp4"
+                src="/videos/Launching_soon_updated.mp4"
                 poster="/images/demo_vid_thumbnail.png"
                 className="w-full h-full"
                 alt="TriAMP Demo Video"
