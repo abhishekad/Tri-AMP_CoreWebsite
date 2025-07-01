@@ -1,12 +1,22 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Brain, Users, Lightbulb, Shield, BarChart3, ArrowUpRight } from 'lucide-react';
+import { Brain, Users, Lightbulb, Shield, BarChart3, ArrowUpRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import CtaSection from '@/components/home/CtaSection';
 import useGoogleAnalytics from '../hooks/useGoogleAnalytics';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
   useGoogleAnalytics();
+  
+  const handleDemoClick = (e) => {
+    e.preventDefault();
+    // Optional: Add analytics tracking here
+    console.log('Schedule Demo clicked from About page');
+    navigate('/demo');
+  };
 
   const stats = [
     { value: '10K+', label: 'Legal Professionals Served' },
@@ -24,13 +34,13 @@ const AboutPage = () => {
     },
     {
       name: 'Ms. Mayuri Chavan',
-      role: 'COO',
+      role: 'COO & Co-founder',
       bio: 'Management expert with a focus on operational excellence and scalable growth through strategic execution and leadership',
       image: 'src/assets/images/female_dev.jpg',
     },
     {
       name: 'Mr. Pravan Unchegaonkar',
-      role: 'CTO',
+      role: 'CTO & Co-founder',
       bio: 'Leading tech innovation and product development with a future-focused, hands-on approach in legal tech industry.',
       image: 'src/assets/images/male_dev.jpg',
     },
@@ -63,7 +73,20 @@ const AboutPage = () => {
                 Get Started
                 <ArrowUpRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button variant="outline" className="border-2 border-aqua/50 text-aqua hover:bg-aqua/10">
+              <Button 
+                asChild
+                variant="outline" 
+                className="border-2 border-aqua/50 text-aqua hover:bg-aqua/10 transition-colors duration-200"
+              >
+                <button 
+                  onClick={handleDemoClick}
+                  className="flex items-center"
+                >
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Schedule Demo
+                </button>
+              </Button>
+              <Button variant="outline" className="border-2 border-light-gray/30 text-light-gray hover:bg-light-gray/10">
                 Contact Us
               </Button>
             </div>
@@ -185,33 +208,14 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-charcoal to-charcoal/90">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-charcoal/50 backdrop-blur-sm border border-border rounded-3xl p-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-light-gray mb-6">
-              Ready to Transform Your Legal Practice?
-            </h2>
-            <p className="text-xl text-light-gray/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of legal professionals who trust TriAMP for their AI-powered legal solutions.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-electric-blue hover:bg-electric-blue/90 text-white">
-                Get Started
-                <ArrowUpRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button variant="outline" className="border-2 border-aqua/50 text-aqua hover:bg-aqua/10">
-                Schedule a Demo
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Reusable CTA Section */}
+      <CtaSection 
+        handleFeatureClick={() => {
+          // Handle Get Started click
+          console.log('Get Started clicked from About page');
+          // You can add navigation or other logic here
+        }}
+      />
     </>
   );
 };

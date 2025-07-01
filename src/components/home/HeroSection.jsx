@@ -2,8 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = ({ handleFeatureClick }) => {
+  const navigate = useNavigate();
+  
+  const handleDemoClick = () => {
+    navigate('/demo');
+  };
   return (
     <section className="relative px-6 py-20 overflow-hidden bg-charcoal">
       <div className="absolute inset-0 bg-electric-blue/5 rounded-full blur-3xl transform -translate-y-1/2"></div>
@@ -49,7 +55,7 @@ const HeroSection = ({ handleFeatureClick }) => {
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button 
-            onClick={handleFeatureClick}
+            onClick={handleDemoClick}
             variant="outline" 
             size="lg"
             className="border-2 border-electric-blue/50 text-electric-blue hover:bg-electric-blue/10 hover:text-electric-blue text-lg px-8 py-4 rounded-xl"
