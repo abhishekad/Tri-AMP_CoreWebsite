@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Brain, Menu, X, Calendar } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const handleFeatureClick = () => {
     toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
+      title: "🚧 This feature isn't implemented yet—Coming soon!"
     });
   };
 
@@ -28,13 +28,19 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center space-x-2"
         >
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-electric-blue rounded-lg flex items-center justify-center">
-              <Brain className="w-6 h-6 text-white" />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="flex items-center space-x-2">
+              <img 
+                src="/images/triamp_no_bg_logo.png" 
+                alt="TriAMP Logo" 
+                className="h-14 w-auto transition-transform group-hover:scale-105"
+                width={56}
+                height={56}
+              />
+              <span className="text-3xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
+                TriAMP
+              </span>
             </div>
-            <span className="text-2xl font-bold text-light-gray">
-              TriAMP
-            </span>
           </Link>
         </motion.div>
 
