@@ -1,6 +1,6 @@
-import path from 'node:path';
-import react from '@vitejs/plugin-react';
+import { fileURLToPath, URL } from 'node:url';
 import { createLogger, defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 const isDev = process.env.NODE_ENV !== 'production';
 let inlineEditPlugin, editModeDevPlugin;
@@ -194,78 +194,120 @@ const securityHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), fullscreen=()',
   'Cross-Origin-Opener-Policy': 'same-origin',
   'Cross-Origin-Embedder-Policy': 'require-corp',
+  'X-Permitted-Cross-Domain-Policies': 'none',
   'Content-Security-Policy': [
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube.com",
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "img-src 'self' data: https:",
-    "font-src 'self' https://fonts.gstatic.com data:",
-    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
-    "media-src 'self' https:",
-    "object-src 'none'",
-    "frame-src 'self' https://www.youtube.com",
-    "base-uri 'self'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data:",
+    "connect-src 'self' https://api.triamp.tech https://www.google-analytics.com",
+    "frame-ancestors 'none'",
     "form-action 'self'",
-    "frame-ancestors 'none'"
+    "base-uri 'self'",
+    "object-src 'none'"
   ].join('; ').replace(/\s+/g, ' ').trim()
+};
+
+// Production build configuration
+const buildConfig = {
+  target: 'es2020',
+  minify: 'terser',
+  cssCodeSplit: true,
+  sourcemap: false,
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        react: ['react', 'react-dom', 'react-router-dom'],
+        vendor: ['framer-motion', 'lucide-react'],
+      },
+    },
+  },
+  terserOptions: {
+    compress: {
+      drop_console: !isDev,
+      drop_debugger: !isDev,
+    },
+  },
+  chunkSizeWarningLimit: 1000,
 };
 
 export default defineConfig({
   customLogger: logger,
   plugins: [
-    ...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
-    react(),
-    addTransformIndexHtml
-  ],
-  server: {
-    cors: true,
-    headers: {
-      ...securityHeaders,
-      'Cross-Origin-Embedder-Policy': 'credentialless', // Required for some browser features
-    },
-    allowedHosts: true,
-  },
-	resolve: {
-		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
-	build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-    sourcemap: false,
-    minify: 'terser',
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      external: [
-        '@babel/parser',
-        '@babel/traverse',
-        '@babel/generator',
-        '@babel/types'
+    react({
+      // Use the default React JSX runtime
+      jsxRuntime: 'classic',
+      // Only include fast refresh in development
+      fastRefresh: isDev,
+      // Exclude the visual editor plugins in production
+      exclude: isDev ? [] : [
+        '**/plugins/visual-editor/**',
+        '**/*.vite-edit.*',
       ],
+      // Babel configuration
+      babel: {
+        plugins: [],
+      },
+    }),
+    addTransformIndexHtml,
+    ...(isDev ? [
+      inlineEditPlugin && inlineEditPlugin(),
+      editModeDevPlugin && editModeDevPlugin()
+    ].filter(Boolean) : []),
+  ],
+  
+  // Server configuration
+  server: {
+    port: 3000,
+    strictPort: true,
+    open: true,
+    headers: securityHeaders,
+  },
+  
+  // Preview configuration
+  preview: {
+    port: 4173,
+    strictPort: true,
+    headers: securityHeaders,
+  },
+  
+  // Build configuration
+  build: {
+    ...buildConfig,
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    rollupOptions: {
+      ...buildConfig.rollupOptions,
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          vendor: ['framer-motion'],
+        ...buildConfig.rollupOptions?.output,
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|gif|svg|webp|avif)$/i.test(assetInfo.name)) {
+            return `assets/images/[name]-[hash][extname]`;
+          }
+          if (/\.(woff|woff2|eot|ttf|otf)$/i.test(assetInfo.name)) {
+            return `assets/fonts/[name]-[hash][extname]`;
+          }
+          return `assets/${ext}/[name]-[hash][extname]`;
         },
       },
     },
-    terserOptions: {
-      compress: {
-        drop_console: !isDev,
-        drop_debugger: !isDev,
-      },
-      format: {
-        comments: false,
-      },
+  },
+  
+  // Resolve configuration
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  preview: {
-    headers: securityHeaders,
-  }
 });

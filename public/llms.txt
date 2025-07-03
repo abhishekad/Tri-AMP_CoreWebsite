@@ -1,0 +1,10 @@
+## Pages
+- [About Us - TriAMP](/about): Learn about TriAMP
+- [Cookies Policy | TriAMP](/cookiespolicy): Cookies Policy for TriAMP. Learn about the cookies we use on our site.
+- [Healthcare AI - Launching Soon | TriAMP](/healthcareai): TriAMP
+- [LEXA - Launching Soon | TriAMP](/lexa): LEXA, TriAMP
+- [Lexa Suite - Launching Soon | TriAMP](/lexasuite): Lexa Suite, TriAMP
+- [Privacy Policy | TriAMP](/privacypolicy): Privacy Policy for TriAMP. Learn how we collect, use, and protect your data.
+- [Schedule a Demo | TriAMP](/demo): See TriAMP
+- [Terms of Use | TriAMP](/termsofuse): Terms of Use for TriAMP services and website.
+- [TriAMP - Revolutionary AI Solutions for Legal Tech](/): TriAMP creates cutting-edge AI products for the Legal technology sector, serving both B2B and B2C markets with innovative solutions.

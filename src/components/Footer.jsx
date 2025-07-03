@@ -1,18 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain } from 'lucide-react';
+
 const Footer = () => {
   return <footer className="px-6 py-12 bg-charcoal border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <Link to="/" className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-electric-blue rounded-lg flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
+            <Link to="/" className="flex items-center space-x-3 mb-4 group">
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/images/triamp_no_bg_logo.png" 
+                  alt="TriAMP Logo" 
+                  className="h-12 w-auto transition-transform group-hover:scale-105"
+                  width={48}
+                  height={48}
+                />
+                <span className="text-2xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
+                  TriAMP
+                </span>
               </div>
-              <span className="text-xl font-bold text-light-gray">
-                TriAMP
-              </span>
             </Link>
             <p className="text-light-gray/70">Ai for You!</p>
           </div>
