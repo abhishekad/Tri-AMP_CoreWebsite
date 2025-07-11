@@ -72,6 +72,6 @@ const WhyChooseUsSection = () => {
       </div>
     </section>
   );
-};
+}; 
 
 export default WhyChooseUsSection;

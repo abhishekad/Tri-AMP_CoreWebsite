@@ -11,6 +11,7 @@ import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import CookiesPolicyPage from '@/pages/CookiesPolicyPage';
 import TermsOfUsePage from '@/pages/TermsOfUsePage';
 import CareersPage from '@/pages/CareersPage';
+import ContactPage from '@/pages/ContactPage';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -33,6 +34,7 @@ function AppContent() {
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
       <Footer />
