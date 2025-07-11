@@ -10,6 +10,7 @@ import LexaSuitePage from '@/pages/LexaSuitePage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import CookiesPolicyPage from '@/pages/CookiesPolicyPage';
 import TermsOfUsePage from '@/pages/TermsOfUsePage';
+import CareersPage from '@/pages/CareersPage';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -31,6 +32,7 @@ function AppContent() {
           <Route path="/cookies-policy" element={<CookiesPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/demo" element={<DemoPage />} />
+          <Route path="/careers" element={<CareersPage />} />
         </Routes>
       </main>
       <Footer />
