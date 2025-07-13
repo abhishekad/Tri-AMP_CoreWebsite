@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, Check, X } from 'lucide-react';
+import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import useGoogleAnalytics from '../hooks/useGoogleAnalytics';
 
 const ContactPage = () => {
@@ -267,10 +268,10 @@ const ContactPage = () => {
                 <h3 className="text-xl font-semibold text-light-gray mb-3">Follow Us</h3>
                 <div className="flex space-x-4">
                   {[
-                    { name: 'Twitter', icon: '🐦', url: '#' },
-                    { name: 'LinkedIn', icon: '💼', url: '#' },
-                    { name: 'GitHub', icon: '💻', url: '#' },
-                    { name: 'Instagram', icon: '📸', url: '#' }
+                    { name: 'Twitter', icon: <FaTwitter className="w-6 h-6" />, url: '#' },
+                    { name: 'LinkedIn', icon: <FaLinkedin className="w-6 h-6" />, url: '#' },
+                    { name: 'GitHub', icon: <FaGithub className="w-6 h-6" />, url: '#' },
+                    { name: 'Instagram', icon: <FaInstagram className="w-6 h-6" />, url: '#' }
                   ].map((social, index) => (
                     <motion.a
                       key={social.name}
@@ -278,7 +279,7 @@ const ContactPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ y: -3 }}
-                      className="w-12 h-12 rounded-full bg-charcoal-light flex items-center justify-center text-2xl hover:bg-electric-blue/20 transition-colors duration-200"
+                      className="w-12 h-12 rounded-full bg-charcoal-light flex items-center justify-center text-2xl hover:bg-electric-blue/20 transition-colors duration-200 text-light-gray hover:text-electric-blue"
                       aria-label={social.name}
                     >
                       {social.icon}
