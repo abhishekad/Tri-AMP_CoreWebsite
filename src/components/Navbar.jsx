@@ -11,9 +11,17 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleFeatureClick = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—Coming soon!"
-    });
+    if (window.location.pathname === '/demo') {
+      // If already on demo page, update hash and scroll to section
+      window.location.hash = 'registration';
+      const element = document.getElementById('registration');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to demo page with hash
+      navigate('/demo#registration');
+    }
   };
 
   const handleDemoClick = () => {

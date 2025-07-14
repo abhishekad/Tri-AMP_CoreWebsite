@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Mail, User } from 'lucide-react';
@@ -18,6 +18,25 @@ const DemoPage = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const scrollToRegistration = () => {
+    if (window.location.hash === '#registration') {
+      const element = document.getElementById('registration');
+      if (element) {
+        // Small timeout to ensure the DOM has updated
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+    }
+  };
+
+  useEffect(() => {
+    // Only run on initial page load if the URL already has #registration
+    if (window.location.hash === '#registration') {
+      scrollToRegistration();
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,7 +99,7 @@ const DemoPage = () => {
       </section>
 
       {/* Registration Form Section */}
-      <section className="py-20 px-6 bg-secondary/10">
+      <section id="registration" className="py-20 px-6 bg-secondary/10">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
