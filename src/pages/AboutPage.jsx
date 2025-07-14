@@ -36,19 +36,19 @@ const AboutPage = () => {
       name: 'Mr. Abhishek Dongare',
       role: 'CEO & Co-founder',
       bio: 'AI/ML expert passionate about building scalable, intelligent solutions that transform the legal tech landscape.',
-      image: 'src/assets/images/male_dev.jpg',
+      image: '/images/male_dev.jpg',
     },
     {
       name: 'Ms. Mayuri Chavan',
       role: 'COO & Co-founder',
       bio: 'Management expert with a focus on operational excellence and scalable growth through strategic execution and leadership',
-      image: 'src/assets/images/female_dev.jpg',
+      image: '/images/female_dev.jpg',
     },
     {
       name: 'Mr. Pravan Unchegaonkar',
       role: 'CTO & Co-founder',
       bio: 'Leading tech innovation and product development with a future-focused, hands-on approach in legal tech industry.',
-      image: 'src/assets/images/male_dev.jpg',
+      image: '/images/male_dev.jpg',
     },
   ];
 
