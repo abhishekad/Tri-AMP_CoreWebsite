@@ -18,6 +18,12 @@ const AboutPage = () => {
     navigate('/demo');
   };
 
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    // Navigate to contact page
+    navigate('/contact');
+  };
+
   const stats = [
     { value: '10K+', label: 'Legal Professionals Served' },
     { value: '1M+', label: 'Documents Processed' },
@@ -86,7 +92,11 @@ const AboutPage = () => {
                   Schedule Demo
                 </button>
               </Button>
-              <Button variant="outline" className="border-2 border-light-gray/30 text-light-gray hover:bg-light-gray/10">
+              <Button 
+                variant="outline" 
+                className="border-2 border-light-gray/30 text-light-gray hover:bg-light-gray/10"
+                onClick={handleContactClick}
+              >
                 Contact Us
               </Button>
             </div>

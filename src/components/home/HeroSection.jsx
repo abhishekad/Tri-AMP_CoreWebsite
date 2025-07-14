@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
+
 const HeroSection = ({ handleFeatureClick }) => {
   const navigate = useNavigate();
   
