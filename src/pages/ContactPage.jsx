@@ -291,29 +291,6 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
-      
-      {/* Map Section */}
-      <section className="py-20 px-6 bg-charcoal/90">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-light-gray mb-4">Our Location</h2>
-            <div className="w-24 h-1 bg-electric-blue mx-auto"></div>
-          </div>
-          
-          <div className="bg-charcoal-light rounded-xl overflow-hidden shadow-xl h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101409.08240368554!2d-122.1430215!3d37.3871368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb07545f8e1e3%3A0x5a5a4b3a5a5a5a5a!2sSilicon%20Valley%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              title="TriAMP Office Location"
-              className="opacity-90 hover:opacity-100 transition-opacity duration-300"
-            ></iframe>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
