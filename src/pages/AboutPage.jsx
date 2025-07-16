@@ -25,8 +25,8 @@ const AboutPage = () => {
   };
 
   const stats = [
-    { value: '10K+', label: 'Legal Professionals Served' },
-    { value: '1M+', label: 'Documents Processed' },
+    { value: '100+', label: 'Legal Professionals Served' },
+    { value: '1000+', label: 'Documents Processed' },
     { value: '99.9%', label: 'Accuracy Rate' },
     { value: '24/7', label: 'Support' },
   ];

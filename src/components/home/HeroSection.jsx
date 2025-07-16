@@ -72,7 +72,7 @@ const HeroSection = ({ handleFeatureClick }) => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
         >
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">500K+</div>
+            <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">1000+</div>
             <div className="text-light-gray/70">Legal Documents Processed</div>
           </div>
           <div className="text-center">
