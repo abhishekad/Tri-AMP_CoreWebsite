@@ -140,10 +140,10 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-6 text-light-gray/80">
                 <p>
-                  We're on a mission to transform the Indian legal industry by making advanced AI tools accessible to every legal professional and individual who needs them.
+                To transform the Indian legal landscape through AI-powered solutions that make legal work smarter, faster, and more accessible.
                 </p>
                 <p>
-                  Our platform is designed to handle the complexities of legal work while remaining intuitive and easy to use, saving you time and reducing errors.
+                We’re building intuitive tools that simplify complexity, reduce errors, and bridge the gap between individuals and the legal system — empowering everyone to engage with law confidently and efficiently.
                 </p>
               </div>
             </motion.div>
