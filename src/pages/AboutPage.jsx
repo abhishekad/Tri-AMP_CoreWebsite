@@ -24,6 +24,12 @@ const AboutPage = () => {
     navigate('/contact');
   };
 
+  const handleCareersClick = (e) => {
+    e.preventDefault();
+    // Navigate to careers page
+    navigate('/careers');
+  };
+
   const stats = [
     { value: '100+', label: 'Legal Professionals Served' },
     { value: '1000+', label: 'Documents Processed' },
@@ -72,7 +78,7 @@ const AboutPage = () => {
               Empowering Legal Innovation Through AI
             </h1>
             <p className="text-xl text-light-gray/80 mb-10 max-w-3xl mx-auto">
-              At TriAMP, we're revolutionizing the legal industry with cutting-edge AI solutions that enhance efficiency, accuracy, and accessibility for legal professionals and individuals alike.
+            Legal insight meets AI innovation — making law simpler, faster, and more accessible.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-electric-blue hover:bg-electric-blue/90 text-white">
@@ -98,6 +104,14 @@ const AboutPage = () => {
                 onClick={handleContactClick}
               >
                 Contact Us
+              </Button>
+              <Button 
+                variant="outline"
+                className="border-2 border-electric-blue/50 text-electric-blue hover:bg-electric-blue/10 transition-colors duration-200"
+                onClick={handleCareersClick}
+              >
+                <Users className="mr-2 h-4 w-4" />
+                Join Us
               </Button>
             </div>
           </motion.div>
