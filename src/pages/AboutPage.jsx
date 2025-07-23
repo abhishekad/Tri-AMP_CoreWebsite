@@ -154,7 +154,7 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-6 text-light-gray/80">
                 <p>
-                To transform the Indian legal landscape through AI-powered solutions that make legal work smarter, faster, and more accessible.
+                To transform the legal landscape through AI-powered solutions that make legal work smarter, faster, and more accessible.
                 </p>
                 <p>
                 We’re building intuitive tools that simplify complexity, reduce errors, and bridge the gap between individuals and the legal system — empowering everyone to engage with law confidently and efficiently.
