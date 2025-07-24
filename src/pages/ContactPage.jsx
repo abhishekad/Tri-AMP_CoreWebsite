@@ -111,10 +111,10 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch"
           >
             {/* Contact Form */}
-            <div className="bg-charcoal-light p-8 rounded-xl shadow-xl">
+            <div className="bg-charcoal-light p-8 rounded-xl shadow-xl h-full">
               <h2 className="text-2xl font-bold text-light-gray mb-6">Send Us a Message</h2>
               
               {status.message && (
@@ -208,8 +208,8 @@ const ContactPage = () => {
             </div>
             
             {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
+            <div className="flex flex-col h-full space-y-8">
+              <div className="bg-charcoal-light p-8 rounded-xl shadow-xl flex-1">
                 <h2 className="text-2xl font-bold text-light-gray mb-6">Contact Information</h2>
                 <p className="text-light-gray/80 mb-8">
                   Have questions about our AI solutions or need support? Reach out to our team and we'll get back to you as soon as possible.
@@ -246,8 +246,7 @@ const ContactPage = () => {
                 </div>
               </div>
               
-
-              <div className="bg-gradient-to-r from-charcoal to-charcoal-dark p-6 rounded-xl border border-charcoal-dark">
+              <div className="bg-gradient-to-r from-charcoal to-charcoal-dark p-8 rounded-xl border border-charcoal-dark">
                 <h3 className="text-xl font-semibold text-light-gray mb-3">Follow Us</h3>
                 <div className="flex space-x-4">
                   {[
