@@ -246,24 +246,7 @@ const ContactPage = () => {
                 </div>
               </div>
               
-              <div className="bg-charcoal-light p-6 rounded-xl">
-                <h3 className="text-xl font-semibold text-light-gray mb-4">Office Hours</h3>
-                <ul className="space-y-2 text-light-gray/80">
-                  <li className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>10:00 AM - 4:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </li>
-                </ul>
-              </div>
-              
+
               <div className="bg-gradient-to-r from-charcoal to-charcoal-dark p-6 rounded-xl border border-charcoal-dark">
                 <h3 className="text-xl font-semibold text-light-gray mb-3">Follow Us</h3>
                 <div className="flex space-x-4">
