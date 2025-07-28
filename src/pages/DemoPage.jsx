@@ -99,27 +99,27 @@ const DemoPage = () => {
       </section>
 
       {/* Registration Form Section */}
-      <section id="registration" className="py-20 px-6 bg-secondary/10">
-        <div className="max-w-4xl mx-auto">
+      <section id="registration" className="py-16 px-4 sm:px-6 bg-secondary/10">
+        <div className="max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-secondary/50 backdrop-blur-sm border border-border rounded-2xl p-8 md:p-12 space-y-6"
+            className="bg-secondary/50 backdrop-blur-sm border border-border rounded-2xl p-6 sm:p-8 space-y-6"
           >
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-light-gray mb-3">Schedule a Personal Demo</h2>
-              <p className="text-light-gray/70">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-light-gray mb-2">Schedule a Personal Demo</h2>
+              <p className="text-light-gray/70 text-sm">
                 Fill out the form below and our team will contact you to schedule a personalized demo.
               </p>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name-demo" className="text-light-gray/80">Full Name</Label>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="name-demo" className="text-light-gray/80 text-sm">Full Name</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-light-gray/50" />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-light-gray/50" />
                   <Input
                     type="text"
                     id="name-demo"
@@ -128,15 +128,15 @@ const DemoPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="pl-10 bg-charcoal/50 border-border text-light-gray placeholder:text-light-gray/40"
+                    className="pl-9 h-10 text-sm bg-charcoal/50 border-border text-light-gray placeholder:text-light-gray/40"
                   />
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <Label htmlFor="email-demo" className="text-light-gray/80">Work Email</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="email-demo" className="text-light-gray/80 text-sm">Work Email</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-light-gray/50" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-light-gray/50" />
                   <Input
                     type="email"
                     id="email-demo"
@@ -145,7 +145,7 @@ const DemoPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="pl-10 bg-charcoal/50 border-border text-light-gray placeholder:text-light-gray/40"
+                    className="pl-9 h-10 text-sm bg-charcoal/50 border-border text-light-gray placeholder:text-light-gray/40"
                   />
                 </div>
               </div>
@@ -153,12 +153,12 @@ const DemoPage = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-electric-blue hover:bg-electric-blue/90 text-white text-lg py-6 rounded-xl mt-8 transition-all duration-300"
+                className="w-full bg-electric-blue hover:bg-electric-blue/90 text-white text-base py-5 rounded-lg mt-4 transition-all duration-300"
               >
                 {isSubmitting ? 'Scheduling...' : 'Schedule My Demo'}
               </Button>
               
-              <p className="text-sm text-light-gray/50 text-center mt-4">
+              <p className="text-xs text-light-gray/50 text-center mt-3">
                 By submitting this form, you agree to our Privacy Policy and Terms of Service.
               </p>
             </form>

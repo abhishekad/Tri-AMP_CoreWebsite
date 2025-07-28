@@ -24,9 +24,15 @@ const AboutPage = () => {
     navigate('/contact');
   };
 
+  const handleCareersClick = (e) => {
+    e.preventDefault();
+    // Navigate to careers page
+    navigate('/careers');
+  };
+
   const stats = [
-    { value: '10K+', label: 'Legal Professionals Served' },
-    { value: '1M+', label: 'Documents Processed' },
+    { value: '100+', label: 'Legal Professionals Served' },
+    { value: '1000+', label: 'Documents Processed' },
     { value: '99.9%', label: 'Accuracy Rate' },
     { value: '24/7', label: 'Support' },
   ];
@@ -72,7 +78,7 @@ const AboutPage = () => {
               Empowering Legal Innovation Through AI
             </h1>
             <p className="text-xl text-light-gray/80 mb-10 max-w-3xl mx-auto">
-              At TriAMP, we're revolutionizing the legal industry with cutting-edge AI solutions that enhance efficiency, accuracy, and accessibility for legal professionals and individuals alike.
+            Legal insight meets AI innovation — making law simpler, faster, and more accessible.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-electric-blue hover:bg-electric-blue/90 text-white">
@@ -98,6 +104,14 @@ const AboutPage = () => {
                 onClick={handleContactClick}
               >
                 Contact Us
+              </Button>
+              <Button 
+                variant="outline"
+                className="border-2 border-electric-blue/50 text-electric-blue hover:bg-electric-blue/10 transition-colors duration-200"
+                onClick={handleCareersClick}
+              >
+                <Users className="mr-2 h-4 w-4" />
+                Join Us
               </Button>
             </div>
           </motion.div>
@@ -140,10 +154,10 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-6 text-light-gray/80">
                 <p>
-                  We're on a mission to transform the Indian legal industry by making advanced AI tools accessible to every legal professional and individual who needs them.
+                To transform the legal landscape through AI-powered solutions that make legal work smarter, faster, and more accessible.
                 </p>
                 <p>
-                  Our platform is designed to handle the complexities of legal work while remaining intuitive and easy to use, saving you time and reducing errors.
+                We’re building intuitive tools that simplify complexity, reduce errors, and bridge the gap between individuals and the legal system — empowering everyone to engage with law confidently and efficiently.
                 </p>
               </div>
             </motion.div>
