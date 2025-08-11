@@ -11,7 +11,7 @@ const publicDir = join(__dirname, '..', 'public');
 // Create output directory if it doesn't exist
 await mkdir(publicDir, { recursive: true });
 
-const inputFile = join(publicDir, 'images', 'triamp_no_bg_logo.png');
+const inputFile = join(publicDir, 'images', 'triamp-logo.png');
 
 // Define favicon sizes and filenames
 const faviconSizes = [
