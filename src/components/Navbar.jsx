@@ -39,15 +39,16 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="flex items-center space-x-2">
               <img 
-                src="/images/triamp_no_bg_logo.png" 
+                src="/images/triamp-logo.png" 
                 alt="TriAMP Logo" 
-                className="h-14 w-auto transition-transform group-hover:scale-105"
-                width={56}
-                height={56}
+                className="h-28 w-auto transition-transform group-hover:scale-105"
+                width={64}
+                height={64}
+                style={{ maxHeight: '50px' }}
               />
-              <span className="text-3xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
+              {/* <span className="text-3xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
                 TriAMP
-              </span>
+              </span> */}
             </div>
           </Link>
         </motion.div>

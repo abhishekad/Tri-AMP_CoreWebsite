@@ -10,15 +10,15 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-3 mb-4 group">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/images/triamp_no_bg_logo.png" 
+                  src="/images/triamp-logo.png" 
                   alt="TriAMP Logo" 
                   className="h-12 w-auto transition-transform group-hover:scale-105"
-                  width={48}
-                  height={48}
+                  width={24}
+                  height={24}
                 />
-                <span className="text-2xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
+                {/* <span className="text-2xl font-bold bg-gradient-to-r from-aqua to-electric-blue bg-clip-text text-transparent">
                   TriAMP
-                </span>
+                </span> */}
               </div>
             </Link>
             <p className="text-light-gray/70 mt-4 max-w-xs">AI for YOU!.</p>
