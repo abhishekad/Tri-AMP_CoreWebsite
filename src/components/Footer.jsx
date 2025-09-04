@@ -49,8 +49,8 @@ const Footer = () => {
           <div>
             <span className="font-semibold text-light-gray mb-4 block">Solutions</span>
             <div className="space-y-2">
-              <Link to="/lexa" className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors block">LEXA</Link>
-              <Link to="/lexa-suite" className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors block">Lexa Suite</Link>
+              <a href="https://www.urcounsel.in" target="_blank" rel="noopener noreferrer" className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors block">UrCounsel AI</a>
+              <Link to="/lexa-suite" className="text-light-gray/70 hover:text-aqua cursor-pointer transition-colors block">UrCounsel Enterprise</Link>
             </div>
           </div>
           

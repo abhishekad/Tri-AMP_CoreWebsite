@@ -81,9 +81,19 @@ const AboutPage = () => {
             Legal insight meets AI innovation — making law simpler, faster, and more accessible.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-electric-blue hover:bg-electric-blue/90 text-white">
-                Get Started
-                <ArrowUpRight className="ml-2 w-4 h-4" />
+              <Button 
+                asChild
+                className="bg-electric-blue hover:bg-electric-blue/90 text-white"
+              >
+                <a 
+                  href="https://www.urcounsel.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  Get Started
+                  <ArrowUpRight className="ml-2 w-4 h-4" />
+                </a>
               </Button>
               <Button 
                 asChild

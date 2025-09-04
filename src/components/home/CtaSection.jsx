@@ -44,12 +44,19 @@ const CtaSection = ({ handleFeatureClick }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={handleFeatureClick}
+              asChild
               size="lg" 
               className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4 rounded-xl shadow-2xl shadow-electric-blue/25"
             >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <a 
+                href="https://www.urcounsel.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
             </Button>
             <Button 
               asChild
