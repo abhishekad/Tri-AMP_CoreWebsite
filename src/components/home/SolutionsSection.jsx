@@ -37,10 +37,16 @@ const SolutionsSection = () => {
           >
             <div className="absolute inset-0 bg-electric-blue/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="relative z-10 h-full flex flex-col">
-              <div className="w-16 h-16 bg-electric-blue rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-white" />
+            <div className="flex items-center gap-4 mb-4">
+            <div className="h-20">
+                <img 
+                  src="/images/urcounsel-full-logo.png" 
+                  alt="UrCounsel Logo"
+                  className="w-full h-full object-contain"
+                />
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-electric-blue">LEXA</h3>
+              {/* <h3 className="text-2xl font-bold mb-4 text-electric-blue">UrCounsel</h3> */}
               <p className="text-light-gray/80 mb-6 leading-relaxed flex-grow">
                 AI-powered legal research and document analysis tool that helps legal professionals work more efficiently with automated insights and case management.
               </p>
@@ -62,10 +68,10 @@ const SolutionsSection = () => {
                 asChild
                 className="w-full bg-electric-blue hover:bg-electric-blue/90 text-white mt-auto"
               >
-                <Link to="/lexa">
+                <a href="https://www.urcounsel.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md bg-electric-blue hover:bg-electric-blue/90 text-white">
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -80,12 +86,17 @@ const SolutionsSection = () => {
           >
             <div className="absolute inset-0 bg-aqua/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="relative z-10 h-full flex flex-col">
-              <div className="w-16 h-16 bg-gradient-to-br from-aqua to-electric-blue rounded-xl flex items-center justify-center mb-6">
-                <Briefcase className="w-8 h-8 text-white" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="h-20">
+                <img 
+                  src="/images/urcounsel-full-logo.png" 
+                  alt="UrCounsel Logo"
+                  className="h-full w-auto object-contain"
+                />
               </div>
+              <span className="px-3 py-1.5 text-xs bg-aqua/20 text-aqua rounded-full font-medium">Enterprise</span>
+            </div>
               <div className="flex items-center mb-1">
-                <h3 className="text-2xl font-bold text-aqua">LEXA Suite</h3>
-                <span className="ml-3 px-2 py-1 text-xs bg-aqua/20 text-aqua rounded-full font-medium">Enterprise</span>
               </div>
               <p className="text-light-gray/80 mb-6 leading-relaxed flex-grow">
                 Comprehensive enterprise solution for law firms and legal departments featuring advanced AI-powered tools for legal research, contract drafting, and case management.

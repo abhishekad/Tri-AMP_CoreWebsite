@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Mail, User } from 'lucide-react';
+import { Mail, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -94,6 +94,53 @@ const DemoPage = () => {
                 alt="TriAMP Demo Video"
               />
             </div>
+          </motion.div>
+          
+          {/* Live Solution Section */}
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-electric-blue/20 to-aqua/20 border border-electric-blue/30 mb-6">
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-electric-blue to-aqua">
+                We're Live!
+              </span>
+            </div>
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/images/urcounsel-full-logo.png" 
+                alt="UrCounsel Logo"
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-light-gray mb-4">
+              Experience Our Legal Document Analysis Solution
+            </h3>
+            <p className="text-lg text-light-gray/80 max-w-2xl mx-auto mb-8">
+              Try our AI-powered legal document analysis tool and see how it can transform your legal pain points.
+            </p>
+            <Button 
+              asChild
+              size="lg" 
+              className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4 rounded-xl shadow-2xl shadow-electric-blue/25"
+            >
+              <a 
+                href="https://www.urcounsel.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                Try Now
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>

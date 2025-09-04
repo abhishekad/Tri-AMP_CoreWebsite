@@ -11,6 +11,13 @@ const HeroSection = ({ handleFeatureClick }) => {
   const handleDemoClick = () => {
     navigate('/demo');
   };
+
+  const scrollToSolutions = () => {
+    const solutionsSection = document.getElementById('solutions');
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="relative px-6 py-20 overflow-hidden bg-charcoal">
       <div className="absolute inset-0 bg-electric-blue/5 rounded-full blur-3xl transform -translate-y-1/2"></div>
@@ -48,7 +55,7 @@ const HeroSection = ({ handleFeatureClick }) => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button 
-            onClick={handleFeatureClick}
+            onClick={scrollToSolutions}
             size="lg" 
             className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4 rounded-xl shadow-2xl shadow-electric-blue/25"
           >
